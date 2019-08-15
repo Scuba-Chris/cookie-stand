@@ -9,5 +9,32 @@ nav{
   position: relative;
 }
 nav > ul{
-  
+
 }
+
+#table{
+  position: relative;
+  justify-content: center;
+  display: flex;
+}
+
+#projection{
+  position: relative;
+}
+#store-hours{
+  font-size: 1.5em;
+}
+
+td,th{
+  text-align: center;
+}
+th{
+  position: sticky;
+
+}
+
+tr{
+  position: sticky;
+  z-index: 2;
+}
+
