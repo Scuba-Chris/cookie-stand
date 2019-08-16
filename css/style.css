@@ -1,40 +1,43 @@
 
+body{
+  background-color: salmon;
+}
+
 h1{
   background-color: red;
   padding: 1.5em;
   
 }
 
-nav{
-  position: relative;
-}
-nav > ul{
-
-}
-
-#table{
-  position: relative;
-  justify-content: center;
-  display: flex;
+nav > ul > li{
+  
+  display: inline-block;
+  
 }
 
 #projection{
   position: relative;
+  border: 2px solid black;
 }
 #store-hours{
   font-size: 1.5em;
+  font-weight: bold;
 }
 
-td,th{
+td,th,tr{
   text-align: center;
-}
-th{
-  position: sticky;
-
+  border: 2px solid black;
 }
 
-tr{
-  position: sticky;
-  z-index: 2;
+#footer{
+  position: absolute;
+  text-align: center;
+  bottom: 5px;
+  border-top: 2px solid black;
+  padding-top: 10px;
+  width: 100%;
 }
 
+#add-store{
+  display: inline;
+}
