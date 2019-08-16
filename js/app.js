@@ -25,6 +25,7 @@ Locations.prototype.randomCustPerHour = function() {
   return Math.floor(Math.random() * (this.maxCustHour - this.minCustHour + 1)) + this.minCustHour;
 };
 
+//calc cookies sold each hour 
 Locations.prototype.cookieSales = function() {
   for (var i = 0; i < storeHours.length; i++){
     this.storeSales.push(Math.floor((this.randomCustPerHour()) * this.avgCookieSale));
