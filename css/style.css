@@ -1,4 +1,8 @@
 
+*{
+  font-family: 'Times New Roman', Times, serif;
+}
+
 body{
   background-color: salmon;
 }
@@ -6,8 +10,7 @@ body{
 h1{
   background-color: red;
   padding: 1.5em;
-  text-align: center;
-  
+  text-align: center; 
 }
 
 nav > ul > li{
@@ -39,7 +42,7 @@ td,th,tr{
 }
 
 #footer{
-  position: absolute;
+  position: fixed;
   text-align: center;
   bottom: 5px;
   border-top: 2px solid black;
@@ -50,3 +53,30 @@ td,th,tr{
 #add-store{
   display: block;
 }
+
+#product_pics > li{
+ 
+  display: block;
+  float: left;
+  padding: 10px;
+
+}
+
+#salesfish{
+  float: right;
+  padding-right: 250px;
+  padding-top: 80px;
+}
+
+#family{
+  float: right;
+  margin-right: 200px,
+  
+}
+
+#mainfish{
+max-width: 500px;
+max-height: auto;
+  float: left;
+}
+
