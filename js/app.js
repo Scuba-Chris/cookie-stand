@@ -43,25 +43,32 @@ var storeNames = document.getElementById('store-names');
 var totals = document.getElementById('sale-totals');
 
 function storeNameRender() {
+  storeNames.innerHTML = '';
   for (var i = 0; i < stores.length; i++){
 
-    var names = document.createElement('tr');
-    names.textContent = (stores[i].storeName);
-    storeNames.appendChild(names);
+    var row = document.createElement('tr');
+    var name = document.createElement('td');
+    name.textContent = (stores[i].storeName);
+    row.appendChild(name);
     
     for (var x = 0; x < storeHours.length; x++){
       var cookieSales = document.createElement('td');
       cookieSales.textContent = (stores[i].storeSales[x]);
-      names.appendChild(cookieSales);
+      row.appendChild(cookieSales);
     }
-    dailyStoreTotals(i, names);
+    dailyStoreTotals(i, row);
+    storeNames.appendChild(row);
   }
+
 }
 
 storeNameRender();
 
 function storeHoursRender() {
-
+  openHours.innerHTML = '';
+  var hourlyTh = document.createElement('th');
+  hourlyTh.textContent = 'store names';
+  openHours.appendChild(hourlyTh);
   for ( var x = 0; x < storeHours.length; x++){
 
     var hours = document.createElement('th');
@@ -72,6 +79,10 @@ function storeHoursRender() {
 storeHoursRender();
 
 function hourlyTotalSales(){
+  totals.innerHTML = '';
+  var hourlyTotalsTd = document.createElement('td');
+  hourlyTotalsTd.textContent = 'hourly totals';
+  totals.appendChild(hourlyTotalsTd);
   for(var x = 0; x < storeHours.length; x++){
     var sum = 0;
     for ( var i = 0; i < stores.length; i++){
@@ -87,7 +98,6 @@ function hourlyTotalSales(){
 hourlyTotalSales();
 
 function dailyStoreTotals(x, location){
-
   var sum = 0;
   for ( var i = 0; i < storeHours.length; i++ ){
     sum += stores[x].storeSales[i];
@@ -107,8 +117,10 @@ function formData ( event ){
   var minCustHour = event.target.min_customers.value;
   var maxCustHour = event.target.max_customers.value;
   var avgCookieSale = event.target.average_sales.value;
-  new Locations(storeName, minCustHour, maxCustHour, avgCookieSale);
+  var newStore = new Locations(storeName, minCustHour, maxCustHour, avgCookieSale);
   form.reset();
+  newStore.cookieSales();
+  renderAll();
 }
 
 
@@ -117,7 +129,7 @@ form.addEventListener('submit', formData);
 
 
 function renderAll(){
-  regexObj = new RegexObj(Locations);
+
   storeNameRender();
   storeHoursRender();
   hourlyTotalSales();
