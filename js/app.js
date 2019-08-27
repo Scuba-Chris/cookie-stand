@@ -12,7 +12,6 @@ function Locations( storeName, minCustHour, maxCustHour, avgCookieSale ){
   stores.push(this);
 }
 
-
 var store1 = new Locations('1st & Pike', 23, 65, 6.3);
 var store2 = new Locations('seaTac', 3, 24, 1.2);
 var store3 = new Locations('seattle center', 11, 38, 3.7);
